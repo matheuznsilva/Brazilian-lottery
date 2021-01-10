@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include "funcao.h"	// inclusão da biblioteca das funções principais
-#define MAX 6	// definição do tamanho da variável
 
 /*===========================================*/
 
-void insere(int V[MAX], int aux, int a){
+void insere(int V[], int aux, int a){
 	V[aux] = a;
 }
 
 /*===========================================*/
 
-int compara(int V[MAX], int i, int a){
+int compara(int V[], int i, int a){
 	for(int j = 0; j<i; j++){
 		if(V[j] == a){
 			return 0;
@@ -21,7 +20,7 @@ int compara(int V[MAX], int i, int a){
 
 /*===========================================*/
 
-void imprime(int V[MAX], int TAM){
+void imprime(int V[], int TAM){
 	printf("\t\t======================\n");
 	printf("\t\t| Numeros Sorteados: |\n\t\t|  ");
 	for(int i=0; i<TAM; i++){
