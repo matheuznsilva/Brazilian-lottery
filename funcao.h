@@ -1,11 +1,11 @@
 
 //====== CABEÇALHOS DAS FUNÇÕES PRINCIPAIS ======
 
-// FUNÇÃO DE INSERÇÃO
-void insere(int V[], int aux, int a);
+void mega(List* LI);
 
-// FUNÇÃO DE COMPARAÇÃO
-int compara(int V[], int i, int a);
+void quina(List* LI);
 
-// FUNÇÃO DE IMPRESSÃO
-void imprime(int V[], int TAM);
+void lotofacil(List* LI);
+
+void lotomania(List* LI);
+

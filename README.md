@@ -1,5 +1,5 @@
-## ALGORITMO DE SORTEIO DE NUMEROS
-> v1.0
+## ALGORITMO DE SORTEIO DE NÚMEROS
+> v2.0
 ```
 +----------------------------------------------------+
 |                                                    |
@@ -10,7 +10,7 @@
 | IDE: VsCode 1.72.1                                 |
 |                                                    |
 | This repository contains draw algorithm in C	     |
-| 		                                     |
+| 		                                             |
 +----------------------------------------------------+
 
 ```

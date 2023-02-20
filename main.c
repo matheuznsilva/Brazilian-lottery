@@ -1,50 +1,94 @@
-
-/************************************************
-*                                               *
-* Autor: Matheus Nascimento e Silva             *
-* Ambiente..: Ubuntu 20.04                      *
-* Compilador: GCC 9.3.0                         *
-* Objetivo..: Programa que sorteia numeros da   *
-* Mega Sena.                                    *
-*                                               *
-* ------- TODOS OS DIREITOS RESERVADOS -------- *
-*                                               *
-*************************************************/
+/*
++----------------------------------------------------+
+|                                                    |
+| ----------------- DRAW ALGORITHM ----------------- |
+|                                                    |
+| AUTHOR: Matheus N. Silva                           |
+| OS.: Ubuntu 20.04 LTS                              |
+| IDE: VsCode 1.75.1                                 |
+|                                                    |
++----------------------------------------------------+
+*/
 
 #include <stdio.h>
 #include <stdlib.h>	
-#include <time.h>	// inclusão da biblioteca time utilizada pela função srand
+#include "linkedlist.h"
 #include "funcao.h"	// inclusão da biblioteca das funções principais
-#include "selectionSort.h"	// inclusão da biblioteca da função de ordenação
-#define TAM 6	// definição do tamanho da variável
+
 
 int main(){
 	
-	srand(time(NULL));
+	int a, b;	// declaração de variáveis
 
-	int num, i, aux, *V;	// declaração de variáveis
-
-	V = (int *) malloc(TAM*sizeof(int));	// alocação de memoria para o vetor
-
-	for(i=0; i<TAM;){		//
-		num = rand()%61;	// sorteio de numeros 
-		if(num != 0){		// compara se o numero sorteado é diferente de zero
-			if(i == 0){		// compara se é a primeira posição do vertor
-				insere(V, i, num);	// caso seja chama a função de insereção
-				i++;	// incrementa o contador
-			} else{		// se não seja a primeira posição do vetor 
-				aux = compara(V, i, num);	// função compara é chamada para verificar se o numero sorteado ja está presente no vetor
-				if(aux == 1){	// se aux for igual a 1 significa que o numero não esta presente no vetor			
-					insere(V, i, num);	// chamada da função de inserção 	
-					i++;	// incrementa o contador
+	List *V = create_list();
+	do{
+		system("clear");
+		printf("+------------ SORTEIO LOTERIA ------------+\n"
+			"| 					  |\n"
+			"| 1 - SENA				  |\n"
+			"| 2 - QUINA 				  |\n"
+			"| 3 - LOTOFACIL		 		  |\n"
+			"| 4 - LOTOMANIA				  |\n"
+			"| 					  |\n"
+			"| 0 - SAIR				  |\n"
+			"+-----------------------------------------+");
+		printf("\nDIGITE SUA ESCOLHA: ");
+		scanf("%d", &a);
+		switch (a){
+			case 1:
+				mega(V);
+				system("clear");
+				printf("+----------------- SENA ------------------+\n\n");
+				print_list(V);
+				printf("\n\n+-----------------------------------------+\n");
+				printf("DESEJA VOLTAR AO MENU PRINCIPAL? (0 - NÃO | 1 - SIM): ");
+				scanf("%d", &b);
+				if(b == 1){
+					clean_list(V);
 				}
-			}
+				break;
+
+			case 2:
+				quina(V);
+				system("clear");
+				printf("+----------------- QUINA -----------------+\n\n");
+				print_list(V);
+				printf("\n\n+-----------------------------------------+\n");
+				printf("DESEJA VOLTAR AO MENU PRINCIPAL? (0 - NÃO | 1 - SIM): ");
+				scanf("%d", &b);
+				break;
+			
+			case 3:
+				lotofacil(V);
+				system("clear");
+				printf("+--------------- LOTOFACIL ---------------+\n\n");
+				print_list(V);
+				printf("\n\n+-----------------------------------------+\n");
+				printf("DESEJA VOLTAR AO MENU PRINCIPAL? (0 - NÃO | 1 - SIM): ");
+				scanf("%d", &b);
+				break;
+			
+			case 4:
+				lotomania(V);
+				system("clear");
+				printf("+--------------- LOTOMANIA ---------------+\n\n");
+				print_list(V);
+				printf("\n\n+-----------------------------------------+\n");
+				printf("DESEJA VOLTAR AO MENU PRINCIPAL? (0 - NÃO | 1 - SIM): ");
+				scanf("%d", &b);
+				break;
+			
+			case 0:
+				b=0;
+				break;
+
+			default:
+				break;
 		}
-	}
-
-	selectionSort(V, TAM);	// chamada da função de ordenação
-
-	imprime(V, TAM);	// chamada da função que imprime o vertor na tela
+	} while(b != 0);
+	
+	system("clear");
+	free_list(V);
 
 	return 0;
 }
