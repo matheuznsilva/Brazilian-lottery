@@ -10,7 +10,7 @@
 | IDE: VsCode 1.72.1                                 |
 |                                                    |
 | This repository contains draw algorithm in C	     |
-| 		                                             |
+| 		                                     |
 +----------------------------------------------------+
 
 ```
