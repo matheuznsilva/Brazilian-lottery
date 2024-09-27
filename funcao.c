@@ -126,7 +126,7 @@ void lotomania(List* LI){
 
 	int i = 0, num, aux;
 	while (i < 50){		//
-		num = rand()%51;	// sorteio de numeros 
+		num = rand()%101;	// sorteio de numeros 
 		if(num != 0){		// compara se o numero sorteado é diferente de zero
 			if(i == 0){		// compara se é a primeira posição do vertor
 				insert_sorted_list(LI, num);	// caso seja chama a função de insereção
